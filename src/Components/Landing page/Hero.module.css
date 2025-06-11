@@ -31,13 +31,35 @@
   width: 100%;
   height: auto;
   border-radius: 16px;
-  ;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
+}
+
+.image-usa-chc {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .image-usa {
-  width: 70%;
+  width: 100%;
   height: auto;
   border-radius: 16px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
+}
+
+.image-chc {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
 }
 
 .explore-btn {
