@@ -8,10 +8,7 @@ import BookTour from './Components/Pages/BookTour';
 import MyTour from './Components/Pages/MyTour';
 import TourDetailsPage from './Components/Pages/TourDetailsPage';
 
-// const AddTour = () => <div>Add Tour Page</div>;
-// const BookTour = () => <div>Book Tour Page</div>;
-// const MyTour = () => <div>My Tour Page</div>;
-// const Explore = () => <div>Explore Tours</div>;
+
 
 function App() {
   return (
@@ -27,7 +24,6 @@ function App() {
           <Route path="/" element={<Hero />} />
         </Routes>
       </div>
-      {/* <Hero /> */}
     </Router>
   );
 }
