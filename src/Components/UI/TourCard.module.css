@@ -1,0 +1,91 @@
+.tour-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  max-width: 340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  
+}
+
+.tour-card:hover {
+  transform: translateY(-6px);
+  cursor: pointer;
+}
+
+.tour-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tour-content {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tour-title {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.tour-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.tour-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tour-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff5e57;
+}
+
+.book-button {
+  padding: 8px 14px;
+  background-color: #ff5e57;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.book-button:hover {
+  background-color: #e64e47;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tour-card {
+    max-width: 100%;
+  }
+
+  .tour-image {
+    height: 180px;
+  }
+
+  .tour-title {
+    font-size: 18px;
+  }
+
+  .tour-description {
+    font-size: 13px;
+  }
+}
