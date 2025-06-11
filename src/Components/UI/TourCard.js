@@ -17,9 +17,6 @@ const TourCard = ({id, image, title, description, price, onBook }) => {
         <p className={classes["tour-description"]}>{description}</p>
         <div className={classes["tour-footer"]}>
           <span className={classes["tour-price"]}>${price}</span>
-          {/* <button className="book-button" onClick={onBook}>
-            Book Now
-          </button> */}
         </div>
       </div>
     </div>
