@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./ExploreTour.module.css";
-import backgroundImage from '../../Assets/chicago.jpg'; // Ensure path and name match
+import backgroundImage from '../../Assets/chicago.jpg'; 
 import { NavLink } from "react-router-dom";
 
 const ExploreTour = () => {
