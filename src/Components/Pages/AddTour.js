@@ -1,12 +1,15 @@
 import Header from "../Header/Header";
+import BookingForm from "./BookingForm";
+
+ 
+import React from "react";
 
 const AddTour = function () {
     return (
-        <div>
-            <Header />
-            <h1>Add Tour Page</h1>
-            <p>This is where you can add a new tour.</p>
-        </div>
+       <React.Fragment>
+        <Header />
+         <BookingForm/>   
+       </React.Fragment>
     );
 }
 
