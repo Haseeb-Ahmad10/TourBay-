@@ -45,6 +45,14 @@ const BookingForm = function () {
     if (validate()) {
       alert("Booking submitted successfully!");
     }
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      adults: "",
+      children: "",
+      payment: "",
+    });
   };
 
   return (
