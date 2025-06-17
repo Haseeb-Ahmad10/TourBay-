@@ -1,3 +1,10 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 40px;
+}
+
 .card-wrapper {
   position: relative;
   width: 340px;

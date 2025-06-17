@@ -64,7 +64,7 @@ const MyTour = function () {
     return (
     <div>
         <Header />
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "24px", padding: "40px" }}>
+        <div className={classes.card}>
          {tours.map((tour) => (
             <div className={classes['card-wrapper']} key={tour.id}>
          <TourCard  {...tour} />
