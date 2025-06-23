@@ -1,61 +1,108 @@
-.form-container {
-  max-width: 400px;
-  margin: 0,auto;
+.booking-form {
+  max-width: 500px;
+  margin: 0 auto;
   margin-top: 2rem;
-  margin-left: 4rem;
-  padding: 1rem;
+  padding: 2rem;
   background: #fff;
-  border-radius: 12px;
-  /* box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 500px;
+}
+
+.booking-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-row {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  gap: 2rem;
+}
+
+.form-row .form-group {
+  flex: 1;
 }
 
 label {
-  font-weight: 600;
-}
-
-input, select {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.error {
-  color: red;
-  font-size: 0.8rem;
+  display: block;
   margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
 }
 
-button {
-  margin-top: 1rem;
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+input.error {
+  border-color: #e74c3c;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.book-now-btn {
+  width: 100%;
+  padding: 1rem;
   background-color: #a68e05;
   color: white;
-  padding: 0.6rem;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.book-now-btn:hover {
+  background-color: #c47302;
 }
+
+.booking-confirmation {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.booking-confirmation h2 {
+  color: #27ae60;
+  margin-bottom: 1rem;
+}
+
+.booking-confirmation p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+
+
 
 .form-image-wrapper {
   display: flex;
   align-items: flex-start;
-  gap: 40px;
+  gap: 20px;
   padding: 20px;
 }
 
-.form-container {
-  flex: 1;
-  max-width: 500px;
-}
 
 .form-image {
   flex: 1;
