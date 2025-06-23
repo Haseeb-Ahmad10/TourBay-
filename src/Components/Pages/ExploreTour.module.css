@@ -38,8 +38,10 @@
 .search-panel {
   display: flex;
   justify-content: center;
-    
-  margin-top: 18rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translate(0, 50px);
 }
 
 .search-box {
