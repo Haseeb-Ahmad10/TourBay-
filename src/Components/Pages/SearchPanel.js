@@ -6,7 +6,6 @@ import backgroundImage from "../../Assets/chicago.jpg";
 import peshawar from '../../Assets/peshawar.jpg';
 import Button from "../UI/Button";
 import Modal from "../UI/Modal";
-import {  notification } from 'antd';
 import { useNotification } from "../UI/NotificationContext";
 
 const SearchPanel = function () {
@@ -19,15 +18,6 @@ const SearchPanel = function () {
   const [selectedCity, setSelectedCity] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-// Notification setup
-  // const [api, contextHolder] = notification.useNotification();
-  // const openNotificationWithIcon = type => {
-  //   api[type]({
-  //     message: 'Booking Successful',
-  //     description:
-  //       'Your tour has been successfully booked! Enjoy your trip.',
-  //   });
-  // };
 
   // Load countries on mount
   useEffect(() => {
@@ -46,36 +36,30 @@ const SearchPanel = function () {
   // search input validation logic
   const theFieldsAreValid = useCallback(() => {
     if (!selectedCountry || !selectedCity) {
-      alert("Please select a country and city.");
       notify.error('error', 'Please select a country and city.');
       return false;
     }
     if (!selectedDate) {
-      alert("Please select a date.");
       notify.error('error', 'Please select a date.');
       return false;
     }
     if (new Date(selectedDate) < new Date().setHours(0, 0, 0, 0)) {
-      alert("Please select a valid future date.");
       notify.error('error', 'Please select a valid future date.');
       return false;
     }
     if (!priceRange) {
-      alert("Please select a price range.");
       notify.error('error', 'Please select a price range.');
       return false;
     }
     return true;
-  }, [selectedCountry, selectedCity, selectedDate, priceRange]);
-  const handleModal = () => {
-   
+  }, [selectedCountry, selectedCity, selectedDate, priceRange, notify]);
+
+  const handleModal = () => {  
       if(theFieldsAreValid()){
         setIsModalOpen(true);
       }
-
   }
-
-  
+ 
   const handleReset = () => {
     setSelectedCountry(null);
     setSelectedCity("");
@@ -83,7 +67,6 @@ const SearchPanel = function () {
     setPriceRange("");
     setIsModalOpen(false);
   }
-  console.log('hello')
 
   const handleCountryChange = (e) => {
             const country = countries.find(c => c.isoCode === e.target.value);
@@ -93,13 +76,12 @@ const SearchPanel = function () {
 
     return (
         <React.Fragment>
-        {contextHolder}
     <div className={classes["search-panel"]}>
         <div className={classes["search-box"]}>
           <div className={classes["input-group"]}>
               
           <label> <span className={classes.icons}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21"><g fill="none" fillRule="evenodd" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" transform="translate(4 2)"><path d="m6.5 16.54l.631-.711c.716-.82 1.36-1.598 1.933-2.338l.473-.624c1.975-2.661 2.963-4.773 2.963-6.334C12.5 3.201 9.814.5 6.5.5s-6 2.701-6 6.033c0 1.561.988 3.673 2.963 6.334l.473.624a54.84 54.84 0 0 0 2.564 3.05z"/><circle cx="6.5" cy="6.5" r="2.5"/></g></svg></span> Location</label>
-            
+            <div className={classes['input-countries']}>
         <select
           value={selectedCountry?.isoCode || ""}
           onChange={handleCountryChange}
@@ -129,6 +111,7 @@ const SearchPanel = function () {
         </label>
       )}    
           </div>
+         </div>
 
         <div className={classes["input-group"]}>
               <label> <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1024 1024"><path fill="currentColor" d="m960 95.888l-256.224.001V32.113c0-17.68-14.32-32-32-32s-32 14.32-32 32v63.76h-256v-63.76c0-17.68-14.32-32-32-32s-32 14.32-32 32v63.76H64c-35.344 0-64 28.656-64 64v800c0 35.343 28.656 64 64 64h896c35.344 0 64-28.657 64-64v-800c0-35.329-28.656-63.985-64-63.985zm0 863.985H64v-800h255.776v32.24c0 17.679 14.32 32 32 32s32-14.321 32-32v-32.224h256v32.24c0 17.68 14.32 32 32 32s32-14.32 32-32v-32.24H960v799.984zM736 511.888h64c17.664 0 32-14.336 32-32v-64c0-17.664-14.336-32-32-32h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32zm0 255.984h64c17.664 0 32-14.32 32-32v-64c0-17.664-14.336-32-32-32h-64c-17.664 0-32 14.336-32 32v64c0 17.696 14.336 32 32 32zm-192-128h-64c-17.664 0-32 14.336-32 32v64c0 17.68 14.336 32 32 32h64c17.664 0 32-14.32 32-32v-64c0-17.648-14.336-32-32-32zm0-255.984h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32h64c17.664 0 32-14.336 32-32v-64c0-17.68-14.336-32-32-32zm-256 0h-64c-17.664 0-32 14.336-32 32v64c0 17.664 14.336 32 32 32h64c17.664 0 32-14.336 32-32v-64c0-17.68-14.336-32-32-32zm0 255.984h-64c-17.664 0-32 14.336-32 32v64c0 17.68 14.336 32 32 32h64c17.664 0 32-14.32 32-32v-64c0-17.648-14.336-32-32-32z"/></svg></span>  Choose Date</label>
