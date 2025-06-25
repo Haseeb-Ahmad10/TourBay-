@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, use } from "react";
 import { Country, City } from "country-state-city";
 import "react-country-state-city/dist/react-country-state-city.css";
 import classes from "./SearchPanel.module.css";
@@ -7,8 +7,10 @@ import peshawar from '../../Assets/peshawar.jpg';
 import Button from "../UI/Button";
 import Modal from "../UI/Modal";
 import {  notification } from 'antd';
+import { useNotification } from "../UI/NotificationContext";
 
 const SearchPanel = function () {
+  const notify = useNotification();
   const [selectedDate, setSelectedDate] = useState("");
   const [priceRange, setPriceRange] = useState("");
   const [countries, setCountries] = useState([]);
@@ -18,14 +20,14 @@ const SearchPanel = function () {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 // Notification setup
-  const [api, contextHolder] = notification.useNotification();
-  const openNotificationWithIcon = type => {
-    api[type]({
-      message: 'Booking Successful',
-      description:
-        'Your tour has been successfully booked! Enjoy your trip.',
-    });
-  };
+  // const [api, contextHolder] = notification.useNotification();
+  // const openNotificationWithIcon = type => {
+  //   api[type]({
+  //     message: 'Booking Successful',
+  //     description:
+  //       'Your tour has been successfully booked! Enjoy your trip.',
+  //   });
+  // };
 
   // Load countries on mount
   useEffect(() => {
@@ -45,18 +47,22 @@ const SearchPanel = function () {
   const theFieldsAreValid = useCallback(() => {
     if (!selectedCountry || !selectedCity) {
       alert("Please select a country and city.");
+      notify.error('error', 'Please select a country and city.');
       return false;
     }
     if (!selectedDate) {
       alert("Please select a date.");
+      notify.error('error', 'Please select a date.');
       return false;
     }
     if (new Date(selectedDate) < new Date().setHours(0, 0, 0, 0)) {
       alert("Please select a valid future date.");
+      notify.error('error', 'Please select a valid future date.');
       return false;
     }
     if (!priceRange) {
       alert("Please select a price range.");
+      notify.error('error', 'Please select a price range.');
       return false;
     }
     return true;
@@ -160,7 +166,7 @@ const SearchPanel = function () {
         image={ selectedCountry?.isoCode === 'PK' && selectedCity === 'Peshawar' ? peshawar : backgroundImage}      
             >
           <div style={{ marginTop: "1rem" }}>
-          <Button type='primary' className={classes['book-btn']} onClick={() =>{ openNotificationWithIcon('success')
+          <Button type='primary' className={classes['book-btn']} onClick={() =>{ notify.success('Booking successful', 'Your tour has been successfully booked! Enjoy your trip.');
             handleReset() 
           }           
            }>Book Now</Button>
